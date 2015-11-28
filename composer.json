@@ -1,0 +1,21 @@
+{
+    "name": "prof/slimphp",
+    "description": "Slim PHP sample app",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anthony Nandaa",
+            "email": "prof@nandaa.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^2.6",
+        "illuminate/database": "^5.1"
+    },
+    "autoload": {
+        "psr-0": {
+            "Custom": "src/",
+            "Controllers": "src/"
+        }
+    }
+}
