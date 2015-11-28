@@ -8,7 +8,7 @@ class Controller extends \Slim\Slim
 
     public function __construct()
     {
-        $config = require("../src/config.php");
+        $config = require("src/config.php");
         if (isset($config['model'])) {
             $this->data = $config['model'];
         }
