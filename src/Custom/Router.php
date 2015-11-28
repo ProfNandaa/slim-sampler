@@ -6,12 +6,14 @@ class Router
 {
     protected $routes;
     protected $request;
+    protected $config;
 
-    public function __construct()
+    public function __construct($config)
     {
         $env = \Slim\Environment::getInstance();
         $this->request = new \Slim\Http\Request($env);
         $this->routes = [];
+        $this->config = $config;
     }
 
     public function addRoutes($routes)
@@ -45,6 +47,9 @@ class Router
         $func = function () use ($class, $function) {
             $class = '\Controllers\\' . $class;
             $class = new $class();
+
+            //add middleware
+            $class->add(new \Slim\Middleware\JwtAuthentication($this->config['middleware']));
 
             $args = func_get_args();
 
